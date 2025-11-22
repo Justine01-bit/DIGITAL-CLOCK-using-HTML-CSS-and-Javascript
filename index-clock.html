@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Hourglass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-clock.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2> Digital Clock</h2>
+      <nav>
+        <button class="tab active" data-view="clock">🕒 Clock</button>
+        <button class="tab" data-view="timer">⏳ Timer</button>
+        <button class="tab" data-view="stopwatch">⏱️ Stopwatch</button>
+        <button class="tab" data-view="alarm">🔔 Alarm</button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Clock -->
+      <section id="clock" class="view active">
+  <div class="analog-clock">
+    <div class="hand hour"></div>
+    <div class="hand minute"></div>
+    <div class="hand second"></div>
+    <div class="center-dot"></div>
+  </div>
+ 
+  <h1 id="rt-time">--:--:--</h1>
+  <p id="rt-date">Loading...</p>
+</section>
+
+      <!-- Timer -->
+      <section id="timer" class="view">
+        <h2>⏳ Timer</h2>
+        <div>
+          <input type="number" id="t-min" placeholder="Min" min="0">
+          <input type="number" id="t-sec" placeholder="Sec" min="0" max="59">
+          <button id="t-start">Start</button>
+          <button id="t-reset">Reset</button>
+        </div>
+        <h1 id="t-display">00:00</h1>
+      </section>
+
+      <!-- Stopwatch -->
+      <section id="stopwatch" class="view">
+        <h2>⏱️ Stopwatch</h2>
+        <div>
+          <button id="sw-start">Start</button>
+          <button id="sw-stop">Stop</button>
+          <button id="sw-reset">Reset</button>
+        </div>
+        <h1 id="sw-display">00:00.000</h1>
+      </section>
+
+      <!-- Alarm -->
+      <section id="alarm" class="view">
+        <div id="done" class="alarm-done" style="display: none;">
+<p>TOOT TOOT!!</p>
+      </div>
+        <h2>🔔 Alarm</h2>
+        <input type="time" id="alarm-time">
+        <button id="add-alarm">Add</button>
+        <ul id="alarm-list"></ul>
+      </section>
+    </main>
+  </div>
+<footer>
+        <marquee behavior="scroll" direction="left">
+            <p>&copy; THE TRIO OF BSIT. All Rights Reserved.</p>
+        </marquee>
+    </footer>
+  <script src="script-clock.js"></script>
+</body>
+</html>

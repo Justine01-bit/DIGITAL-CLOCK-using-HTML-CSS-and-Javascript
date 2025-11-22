@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0b1c2c, #09131e);
+  color: #eaf6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ---------- APP CONTAINER ---------- */
+.app {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(30, 45, 60, 0.85);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+  width: 240px;
+  background: rgba(25, 35, 50, 0.95);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #9ae6ff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar .tab {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #d3e8ff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.sidebar .tab:hover {
+  background: rgba(0, 200, 255, 0.1);
+}
+
+.sidebar .tab.active {
+  border: 1px solid #00cfff;
+  background: linear-gradient(90deg, #003b59, #005980);
+  color: #eafcff;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    background-color:4px solid #00cfff;
+    color: #fff;
+    box-shadow: 0 0 15px #00cfff, inset 0 0 25px rgba(0, 200, 255, 0.5);
+    text-shadow: 0 0 15px #00cfff, 0 0 25px #00aaff;
+    padding: 14px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+/* ---------- MAIN AREA ---------- */
+.main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ---------- VIEWS ---------- */
+.view {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: all 0.3s ease;
+}
+
+.view.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- ANALOG CLOCK ---------- */
+.analog-clock {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 4px solid #00cfff;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px #00cfff, inset 0 0 25px rgba(0, 200, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(0deg);
+  background: #00cfff;
+  border-radius: 2px;
+  transition: transform 0.05s linear;
+  transform-origin: bottom center;
+}
+
+.hand.hour {
+  width: 4px;
+  height: 35px;
+  background: #7ae6ff;
+}
+
+.hand.minute {
+  width: 3px;
+  height: 50px;
+  background: #00d5ff;
+}
+
+.hand.second {
+  width: 2px;
+  height: 60px;
+  background: #ff4d4d;
+}
+
+.center-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00cfff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00cfff;
+}
+
+/* ---------- CLOCK ---------- */
+#rt-time {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #7ae6ff;
+  text-shadow: 0 0 15px #00cfff, 0 0 25px #00aaff;
+}
+
+#rt-date {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #b9d7ea;
+}
+
+/* ---------- TIMER / STOPWATCH ---------- */
+#t-display,
+#sw-display {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: #00e6ff;
+  text-shadow: 0 0 12px #00aaff;
+}
+
+.view input,
+.view button {
+  margin: 0.4rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.view input {
+  width: 80px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eaf6ff;
+  outline: none;
+}
+
+.view button {
+  background: #00bfff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.view button:hover {
+  background: #009cd3;
+}
+#alarm-time {
+  width:20%;
+}
+/* ---------- ALARM ---------- */
+#alarm-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+#alarm-list li {
+  padding: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+  .app {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .main {
+    padding: 1.5rem;
+  }
+
+  #rt-time {
+    font-size: 2.8rem;
+  }
+
+  .analog-clock {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  .analog-clock {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 8px solid #333;
+  border-radius: 50%;
+  margin: 20px auto;
+  background: white;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translate(-50%, 0) rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.hand.hour {
+  width: 6px;
+  height: 45px;
+  background: #222;
+}
+
+.hand.minute {
+  width: 4px;
+  height: 65px;
+  background: #444;
+}
+
+.hand.second {
+  width: 2px;
+  height: 75px;
+  background: red;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  width: 100%;
+  margin-top: 25px;
+}
+
+footer {
+  width: 100%;
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  background: #f0f4f8;
+  padding: 5px 0;
+  text-align: center;
+  z-index: 1000;
+  }
+  }
